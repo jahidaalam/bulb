@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project</title>
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        .image {
+            display: flex;
+            justify-content: center;                      
+        }
+        .image img{
+            height: 350px;
+            width: 250px;
+        }
+
+        .btn {
+            display: flex;
+            justify-content: center;
+        }
+
+        .btn button {
+            padding: 10px 40px;
+            margin: 5px;
+            border-color: transparent;
+            background-color: red;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+    <div class="image">
+        <img src="OFFbulb.png" alt="" onclick="bulbToggle()" id="bulb">
+    </div>
+
+    <div class="btn">
+        <!-- <button onclick="bulbOn()">ON</button> -->
+        <!-- <button onclick="bulbOff()">OFF</button> -->
+        <button onclick="bulbToggle()" id="on_off_btn">ON</button>
+    </div>
+
+</body>
+<script>
+    let bulbOn = function () {
+        let bulbObj = document.getElementById('bulb');
+        bulbObj.setAttribute('src', 'ONbulb.png');
+        // let srcValue = bulbObj.getAttribute('src');
+        // console.log(srcValue);
+    };
+    let bulbOff = function () {
+        let bulbObj = document.getElementById('bulb');
+        bulbObj.setAttribute('src', 'OFFbulb.png');
+        // let srcValue = bulbObj.getAttribute('src');
+        // console.log(srcValue);
+    };
+    let bulbToggle = function () {
+        let bulbObj = document.getElementById('bulb');
+        let srcValue = bulbObj.getAttribute('src');
+        // console.log(srcValue);
+        let on_off_btn = document.getElementById('on_off_btn');
+        let btnText = on_off_btn.innerText;
+        // console.log(btnText);
+        if (srcValue == 'OFFbulb.png') {
+            bulbOn();
+            on_off_btn.innerHTML = 'OFF';
+            on_off_btn.style.backgroundColor = 'green';
+        }
+        else {
+            bulbOff();
+            on_off_btn.innerHTML = 'ON';
+            on_off_btn.style.backgroundColor = 'red';
+        }
+    };
+</script>
+
+</html>
